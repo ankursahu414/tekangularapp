@@ -1,0 +1,8 @@
+<div class="card container-fluid" style="width: 22rem;">
+    <img style="height: 15rem;" [src]="cakedata.image" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{cakedata.name}}</h5>
+      <p class="card-text">{{cakedata.price|currency:'INR'}}</p>
+      <a (click)="showCakedetails()" class="btn btn-primary">Purchase</a>
+    </div>
+  </div>

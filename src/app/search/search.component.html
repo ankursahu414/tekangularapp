@@ -1,0 +1,8 @@
+<div class="p-3 mb-2 bg-primary mt-4 text-white">{{searchitems.length}} cakes found for your search</div>
+<!-- <div class="row container">
+    <app-cake *ngFor="let cake of searchitems; let i=index" class="col" [cakedata]="cake"></app-cake>
+</div>   -->
+<ngx-ui-loader></ngx-ui-loader>
+<div class="row container-fluid">
+    <app-cake *ngFor="let cake of searchitems; let i=index" class="col" [cakedata]="cake"></app-cake>
+</div>  

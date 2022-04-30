@@ -1,0 +1,107 @@
+<!-- <div class="container">
+    <form #addressForm="ngForm" (submit)="addressForm.valid && addAddress()">
+    <div class="d-flex flex-row align-items-center mb-4 mt-3">
+        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <input name="Myname" required #name="ngModel" [(ngModel)]="userdetails.name"  type="text" id="form3Example1c" class="form-control" />
+          <div style="color:red" *ngIf="addressForm.submitted && name.errors">
+                <label *ngIf="name.errors['required']">Name is Required</label>
+          </div>
+          <label class="form-label" for="form3Example1c">Your Name</label>
+        </div>
+      </div>
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <input name="Myaddress" required #address="ngModel" [(ngModel)]="userdetails.address"  type="text" id="form3Example1c" class="form-control" />
+          <div style="color:red" *ngIf="addressForm.submitted && address.errors">
+            <label *ngIf="address.errors['required']">Address is Required</label>
+          </div>
+          <label class="form-label" for="form3Example1c">Address</label>
+        </div>
+      </div>
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <input name="Mycity" required #city="ngModel" [(ngModel)]="userdetails.city"  type="text" id="form3Example1c" class="form-control" />
+          <div style="color:red" *ngIf="addressForm.submitted && city.errors">
+            <label *ngIf="city.errors['required']">City is Required</label>
+          </div>
+          <label class="form-label" for="form3Example1c">City</label>
+        </div>
+      </div>
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <input name="Mypincode" required #pincode="ngModel" [(ngModel)]="userdetails.pincode"  type="text" id="form3Example1c" class="form-control" />
+          <div style="color:red" *ngIf="addressForm.submitted && pincode.errors">
+            <label *ngIf="pincode.errors['required']">Pincode is Required</label>
+          </div>
+          <label class="form-label" for="form3Example1c">Pincode</label>
+        </div>
+      </div>
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <input name="Myphone" required #phone="ngModel" [(ngModel)]="userdetails.phone"  type="text" id="form3Example1c" class="form-control" />
+          <div style="color:red" *ngIf="addressForm.submitted && phone.errors">
+            <label *ngIf="phone.errors['required']">Phone is Required</label>
+          </div>
+          <label class="form-label" for="form3Example1c">Phone</label>
+        </div>
+      </div>
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+            <button (click)="addAddress()" routerLink="/checkout/payment" class="btn btn-primary">Add Address</button>
+        </div>
+      </div>
+    </form>
+</div> -->
+
+<div  class="container">
+  <form #addressForm="ngForm" (submit)="addressForm.valid && addAddress()">
+    
+  <div class="form-group mt-3">
+   
+      <label for="">Name</label>
+      <input name="name" required #name="ngModel" [(ngModel)]="userdetails.name" type="text" class="form-control">
+      <div style="color: red;" *ngIf="addressForm.submitted && name.errors">
+          <label *ngIf="name.errors?.['required']">Name is Required</label>
+      </div>
+  </div>
+  <div class="form-group mt-3">
+      <label for="">Address</label>
+      <input name="address" required #address="ngModel" [(ngModel)]="userdetails.address" type="text" class="form-control">
+      <div style="color: red;" *ngIf="addressForm.submitted && address.errors">
+        <label *ngIf="address.errors?.['required']">Address is Required</label>
+    </div>
+  </div>
+  <div class="form-group mt-3">
+      <label for="">City</label>
+      <input name="city" required #city="ngModel" [(ngModel)]="userdetails.city" type="text" class="form-control">
+      <div style="color: red;" *ngIf="addressForm.submitted && city.errors">
+        <label *ngIf="city.errors?.['required']">City is Required</label>
+    </div>
+  </div>
+  <div class="form-group mt-3">
+      <label for="">Pincode</label>
+      <input name="pincode" required #pincode="ngModel" [(ngModel)]="userdetails.pincode" type="text" class="form-control">
+      <div style="color: red;" *ngIf="addressForm.submitted && pincode.errors">
+        <label *ngIf="pincode.errors?.['required']">Pincode is Required</label>
+    </div>
+  </div>
+  <div class="form-group mt-3">
+      <label for="">Phone</label>
+      <input name="phone" required #phone="ngModel" [(ngModel)]="userdetails.phone" type="text" class="form-control">
+      <div style="color: red;" *ngIf="addressForm.submitted && phone.errors">
+        <label *ngIf="phone.errors?.['required']">Pincode is Required</label>
+    </div>
+  </div>
+  <div class="form-group mt-3">
+      <button *ngIf="addressForm.valid" (click)="addAddress()" routerLink="/checkout/payment" class="btn btn-primary">Add Address</button>
+      <button *ngIf="!addressForm.valid" class="btn btn-primary">Add Address</button>
+  </div>
+</form>
+
+</div>

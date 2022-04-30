@@ -1,0 +1,8 @@
+<ngx-ui-loader></ngx-ui-loader>
+<div class="text-center">
+<button (click)="asc()" class="btn btn-warning mt-3 mb-2 me-2">Low to High</button>
+<button (click)="desc()" class=" btn btn-warning mt-3 mb-2">High to Low</button>
+</div>
+<div class="row container-fluid">
+    <app-cake *ngFor="let cake of cakes; let i=index" class="col" [cakedata]="cake"></app-cake>
+</div>  

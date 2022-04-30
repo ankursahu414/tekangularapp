@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Cake Gallery</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/yourorders">Your Orders</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <a *ngIf="isadmin" class="navbar-brand" routerLink="/addcake">Add new Cake</a>
+          <input name="search" [(ngModel)]="searchtext" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button  (click)="search()" class="btn btn-outline-success me-2" type="submit"><fa-icon [icon]="fasearch"></fa-icon>
+          </button>
+          <button *ngIf="!isloggedin" routerLink="/login" class="btn btn-outline-success me-2" type="submit"><fa-icon [icon]="faSignIn"></fa-icon></button>
+          <button *ngIf="isloggedin" routerLink="/cart" class="btn btn-outline-warning position-relative me-2" type="submit">  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{length}}
+          </span>
+        <fa-icon [icon]="faShoppingCart"></fa-icon></button>
+          <button *ngIf="isloggedin" (click)="logout()" class="btn btn-outline-danger" type="submit"><fa-icon [icon]="faSignOut"></fa-icon></button>
+        </form>
+      </div>
+    </div>
+  </nav>

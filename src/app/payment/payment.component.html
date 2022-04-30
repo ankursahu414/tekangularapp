@@ -1,0 +1,69 @@
+<h2 class="mt-2">We currently offer only cash on delivery</h2>
+<h3>Items in your cart</h3>
+<div *ngIf="cakes.length" class="container">
+    <table class="table table-success table-striped mt-4">
+        <thead>
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Image</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cakes;let i=index">
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.name}}</td>
+              <td><img style="height:60px; width:60px" [src]="item.image" alt=""></td>
+              <td>{{item.price | currency:'INR'}}</td>
+              <td>{{item.quantity}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <!-- <div class="table-responsive">
+    <table class="table table-sm table-borderless mb-0">
+      <tbody>
+        <tr>
+          <th class="pl-0 w-25" scope="row"><strong>Name</strong></th>
+          <td>{{usercheckoutdetails.name}}</td>
+        </tr>
+        <tr>
+          <th class="pl-0 w-25" scope="row"><strong>Address</strong></th>
+          <td>{{usercheckoutdetails.address}}</td>
+        </tr>
+        <tr>
+          <th class="pl-0 w-25" scope="row"><strong>City</strong></th>
+          <td>{{usercheckoutdetails.city}}</td>
+        </tr>
+        <tr>
+          <th class="pl-0 w-25" scope="row"><strong>Pincode</strong></th>
+          <td>{{usercheckoutdetails.pincode}} kg</td>
+        </tr>
+        <tr>
+          <th class="pl-0 w-25" scope="row"><strong>Phone</strong></th>
+          <td>{{usercheckoutdetails.phone}} </td>
+        </tr>
+        <tr>
+            <th class="pl-0 w-25" scope="row"><strong>Total Price</strong></th>
+            <td>{{totalprice|currency:'INR'}} </td>
+          </tr>
+       
+      </tbody>
+    </table>
+  </div> -->
+  <div class="d-flex bd-highlight">
+  <div class="p-2 flex-fill bd-highlight card mb-2" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name:   {{usercheckoutdetails.name}}</li>
+      <li class="list-group-item">Address:  {{usercheckoutdetails.address}}</li>
+      <li class="list-group-item">City:   {{usercheckoutdetails.city}}</li>
+      <li class="list-group-item">Pincode:    {{usercheckoutdetails.pincode}}</li>
+    </ul>
+    <div class="card-footer">
+      <button (click)="placeorder()" class="btn btn-primary mb-4">Place Order</button>
+      <div class="float-end">Total Price:{{totalprice|currency:'INR'}}</div>
+    </div>
+  </div>
+  </div>

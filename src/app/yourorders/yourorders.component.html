@@ -1,0 +1,75 @@
+<ngx-ui-loader></ngx-ui-loader>
+<div *ngIf="!previousorders.length; else elseBlock">
+  <div class="p-3 mb-2 bg-danger mt-4 text-white"><h3>You haven't placed any order yet</h3></div>
+</div>
+<ng-template #elseBlock>
+  <div *ngFor="let order of previousorders" class="table-responsive">
+    <div class="container-fluid mt-2"><h2 >Order Id {{order.orderid}}</h2></div>
+     <div class="container">
+       <table class="table table-success table-striped mt-4">
+           <thead>
+             <tr>
+                 <th scope="col">#</th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Image</th>
+                 <th scope="col">Price</th>
+                 <th scope="col">Quantity</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr *ngFor="let item of order.cakes;let i=index" >
+                 <th scope="row">{{i+1}}</th>
+                 <td>{{item.name}}</td>
+                 <td><img style="height:60px; width:60px" [src]="item.image" alt=""></td>
+                 <td>{{item.price | currency:'INR'}}</td>
+                 <td>{{item.quantity}}</td>
+             </tr>
+           </tbody>
+         </table>
+   
+     </div>
+     <div class="d-flex bd-highlight">
+       <div class="p-2 flex-fill bd-highlight card mb-2" style="width: 18rem;">
+         <ul class="list-group list-group-flush">
+           <li class="list-group-item">Name:   {{order.name}}</li>
+           <li class="list-group-item">Date:  {{order.orderdate}}</li>
+           <li class="list-group-item">City:   {{order.city}}</li>
+           <li class="list-group-item">Pincode:    {{order.pincode}}</li>
+           <li class="list-group-item">Phone:    {{order.phone}}</li>
+           <li class="list-group-item">Total Price:    {{order.price|currency:'INR'}}</li>
+         </ul>
+       </div>
+       </div>
+     
+     <!-- <table class="table table-sm table-borderless mb-0">
+       <tbody>
+         <tr>
+           <th class="pl-0 w-25" scope="row"><strong>Name</strong></th>
+           <td>{{order.name}}</td>
+         </tr>
+         <tr>
+           <th class="pl-0 w-25" scope="row"><strong>Date</strong></th>
+           <td>{{order.orderdate}}</td>
+         </tr>
+         <tr>
+           <th class="pl-0 w-25" scope="row"><strong>City</strong></th>
+           <td>{{order.city}}</td>
+         </tr>
+         <tr>
+           <th class="pl-0 w-25" scope="row"><strong>Status</strong></th>
+           <td *ngIf="order.pending==true">Pending</td>
+           <td *ngIf="order.pending==false">completed</td>
+         </tr>
+         <tr>
+           <th class="pl-0 w-25" scope="row"><strong>Phone</strong></th>
+           <td>{{order.phone}} </td>
+         </tr>
+         <tr>
+             <th class="pl-0 w-25" scope="row"><strong>Total Price</strong></th>
+             <td>{{order.price|currency:'INR'}} </td>
+           </tr>
+        
+       </tbody>
+     </table> -->
+   </div>
+</ng-template>
