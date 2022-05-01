@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
       next: (response:any)=>{
         console.log("Response from login api", response)
         if(response.token){
-          this.toastr.success('Welcome'+response.name);
+          let u=response.name
+          this.toastr.success('Welcome  '+u);
           localStorage["token"] = response.token
           localStorage["loggedinuser"]=response.email
           this.ankurservice.loggedinuser=response.email

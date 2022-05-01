@@ -1,2 +1,56 @@
-<input (change)="getFile($event)" type="file">
+<input class="mt-2" (change)="getFile($event)" type="file">
 <button (click)="upload()" class="btn btn-primary">Upload</button>
+
+<div  class="container">
+    <form #addcakeForm="ngForm" (submit)="addcakeForm.valid">
+      
+    <div class="form-group mt-3">
+     
+        <label for="">Name</label>
+        <input name="name" required #name="ngModel" [(ngModel)]="body.name" type="text" class="form-control">
+        <div style="color: red;" *ngIf="addcakeForm.submitted && name.errors">
+            <label *ngIf="name.errors?.['required']">Name is Required</label>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label for="">Description</label>
+        <input name="description" required #description="ngModel" [(ngModel)]="body.description" type="text" class="form-control">
+        <div style="color: red;" *ngIf="addcakeForm.submitted && description.errors">
+          <label *ngIf="description.errors?.['required']">Description is Required</label>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+        <label for="">Price</label>
+        <input name="price" required #price="ngModel" [(ngModel)]="body.price" type="text" class="form-control">
+        <div style="color: red;" *ngIf="addcakeForm.submitted && price.errors">
+          <label *ngIf="price.errors?.['required']">Price is Required</label>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+        <label for="">Eggless</label>
+        <input name="eggless" required #eggless="ngModel" [(ngModel)]="body.eggless" type="text" class="form-control">
+        <div style="color: red;" *ngIf="addcakeForm.submitted && eggless.errors">
+          <label *ngIf="eggless.errors?.['required']">Required</label>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+        <label for="">Weight(kg)</label>
+        <input name="weight" required #weight="ngModel" [(ngModel)]="body.weight" type="text" class="form-control">
+        <div style="color: red;" *ngIf="addcakeForm.submitted && weight.errors">
+          <label *ngIf="weight.errors?.['required']">Weight is Required</label>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+        <label for="">Type</label>
+        <input name="type" required #type="ngModel" [(ngModel)]="body.type" type="text" class="form-control">
+        <div style="color: red;" *ngIf="addcakeForm.submitted && type.errors">
+          <label *ngIf="type.errors?.['required']">Type is Required</label>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+        <button *ngIf="addcakeForm.valid" (click)="addcake()" class="btn btn-primary mb-2">Add Cake</button>
+        <button *ngIf="!addcakeForm.valid" class="btn btn-primary mb-2">Add Cake</button>
+    </div>
+  </form>
+  
+  </div>

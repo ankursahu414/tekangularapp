@@ -88,6 +88,9 @@ export class AnkurService {
   uploadimage(url:any, body:any, options:any){
     return this.http.post(url,body,options)
   }
+  uploadcake(url:any, body:any, options:any){
+    return this.http.post(url,body,options)
+  }
   getpreviousorders(url:any, body:any, options:any){
     return this.http.post(url, body, options)
   }
