@@ -10,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CakelistComponent implements OnInit {
   asc(){
-    alert(this.ankurangular.PORT)
     this.cakes = this.ankurangular.asc(this.cakes)
   }
   desc(){

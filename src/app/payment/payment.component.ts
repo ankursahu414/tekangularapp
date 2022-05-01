@@ -43,6 +43,9 @@ placeorder(){
       this.toastr.success("Order Placed")
       this.orderdetails = response.order;
       }
+      if(response.error=='insufficient details'){
+        this.toastr.error('Address Required')
+      }
     },
     error:(error:any)=>{
       console.log("Error from place order api", error);

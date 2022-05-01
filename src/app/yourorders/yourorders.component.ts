@@ -11,7 +11,9 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class YourordersComponent implements OnInit {
   previousorders:any={};
   length:any
+  isloggedin:any
   constructor(private ankur:AnkurService, private http:HttpClient, private spinner:NgxUiLoaderService) {
+    this.isloggedin=localStorage["token"]?true:false
     this.spinner.start()
     var url = "https://apifromashu.herokuapp.com/api/cakeorders"
     let myheaders = new HttpHeaders()

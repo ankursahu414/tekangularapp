@@ -1,3 +1,4 @@
+<div *ngIf="isloggedin">
 <ngx-ui-loader></ngx-ui-loader>
 <div *ngIf="!previousorders.length; else elseBlock">
   <div class="p-3 mb-2 bg-danger mt-4 text-white"><h3>You haven't placed any order yet</h3></div>
@@ -40,36 +41,9 @@
          </ul>
        </div>
        </div>
-     
-     <!-- <table class="table table-sm table-borderless mb-0">
-       <tbody>
-         <tr>
-           <th class="pl-0 w-25" scope="row"><strong>Name</strong></th>
-           <td>{{order.name}}</td>
-         </tr>
-         <tr>
-           <th class="pl-0 w-25" scope="row"><strong>Date</strong></th>
-           <td>{{order.orderdate}}</td>
-         </tr>
-         <tr>
-           <th class="pl-0 w-25" scope="row"><strong>City</strong></th>
-           <td>{{order.city}}</td>
-         </tr>
-         <tr>
-           <th class="pl-0 w-25" scope="row"><strong>Status</strong></th>
-           <td *ngIf="order.pending==true">Pending</td>
-           <td *ngIf="order.pending==false">completed</td>
-         </tr>
-         <tr>
-           <th class="pl-0 w-25" scope="row"><strong>Phone</strong></th>
-           <td>{{order.phone}} </td>
-         </tr>
-         <tr>
-             <th class="pl-0 w-25" scope="row"><strong>Total Price</strong></th>
-             <td>{{order.price|currency:'INR'}} </td>
-           </tr>
-        
-       </tbody>
-     </table> -->
    </div>
 </ng-template>
+</div>
+<div *ngIf="!isloggedin">
+  <app-pagenotfound></app-pagenotfound>
+</div>
