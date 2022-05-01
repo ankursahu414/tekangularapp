@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       next: (response:any)=>{
         console.log("Response from login api", response)
         if(response.token){
-          this.toastr.success('Log In successful');
+          this.toastr.success('Welcome'+response.name);
           localStorage["token"] = response.token
           localStorage["loggedinuser"]=response.email
           this.ankurservice.loggedinuser=response.email
